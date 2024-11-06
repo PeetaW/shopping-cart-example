@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hants">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>購物車實作</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./style/style.css">
+  
+</head>
+<body>
+  <div class="container">
+    <div id="app">
+      <div class="title">
+        <h2>Dessert</h2>
+      </div>
+      <div class="item" v-for="food in foods">
+        <div class="top">
+          <div class="itempic" v-bind:style="'background-image: url(.' + food.image.desktop + ')'"></div>
+          <div class="cartbtn">
+            <i class="fa-solid fa-cart-plus a">&nbsp; &nbsp; Add to cart</i>
+            <br>
+            <i class="fa-solid fa-circle-plus b"></i>
+            <div class="num">0</div>
+            <i class="fa-solid fa-circle-minus c"></i>
+            
+          </div>
+          
+          
+        </div>
+        <div class="bottom">
+          <div class="category">{{food.category}}</div>
+          <div class="name">{{food.name}}</div>
+          <div class="price">${{parseFloat(food.price).toFixed(2)}}</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <div id="yourcart">
+    <div class="cart_title">
+      <h2>Your cart (0)</h2>
+    </div>
+    <div class="cartmark"></div>
+    <div class="cartreminder">
+      <h5>Your added items will appear here</h5>
+    </div>    
+  </div>
+
+  <div id="yourcart2">
+    <div class="cart_title">
+      <h2>Your cart (0)</h2>
+    </div>
+    <div id="cart-items"></div>
+    <div class="price-description">
+      <p id="total-title">Order Total</p>
+      <p id="total-price">$0</p>
+    </div>
+    <div class="carbonNeutral">
+      <div class="cnIcon"></div>
+      <p>This is <b>carbon-neutral</b> delivery</p>
+    </div>
+    <div class="orderbtn">
+      <p>Confirm Order</p>
+      
+    </div>
+
+    
+  </div>
+  
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <i class="fa-regular fa-square-check"></i>
+      <h2>Order confirmed</h2>
+      <div class="enjoyfood">
+        We hope you enjoy your food
+      </div>
+      <div id="orderContainer">
+        
+      </div>
+      <div class="totalSum">
+        <h3>Order Total</h3>
+        <p id="total-price-order">$0</p>
+      </div>
+      <div id="startNewOrder">
+        <h3>Start New Order</h3>
+      </div>
+    </div>
+    
+  </div>
+  
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script src="./index.js"></script>
+  
+
+  
+</body>
+</html>
